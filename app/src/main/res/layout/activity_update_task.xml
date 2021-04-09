@@ -22,19 +22,19 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
 
         <EditText
-            android:id="@+id/editTextTask"
+            android:id="@+id/editCategoryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Task name" />
 
         <EditText
-            android:id="@+id/editTextDesc"
+            android:id="@+id/editBudget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description" />
 
         <EditText
-            android:id="@+id/editTextFinishBy"
+            android:id="@+id/editTextAlreadySpent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Finished by" />

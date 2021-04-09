@@ -18,9 +18,9 @@ public class AddTaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
-        editTextTask = findViewById(R.id.editTextTask);
-        editTextDesc = findViewById(R.id.editTextDesc);
-        editTextFinishBy = findViewById(R.id.editTextFinishBy);
+        editTextTask = findViewById(R.id.editCategoryName);
+        editTextDesc = findViewById(R.id.editBudget);
+        editTextFinishBy = findViewById(R.id.editTextAlreadySpent);
 
         findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener() {
             @Override

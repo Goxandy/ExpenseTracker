@@ -3,11 +3,13 @@ package com.example.lotterydbthree;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.Menu;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,11 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton buttonAddTask;
     private RecyclerView recyclerView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);;
+        // toolbar = (Toolbar) findViewById(R.layout.toolbar_main);
+        // setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recyclerview_tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -45,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
         getTasks();
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
 
 
     private void getTasks() {
@@ -71,5 +84,6 @@ public class MainActivity extends AppCompatActivity {
         GetTasks gt = new GetTasks();
         gt.execute();
     }
+
 
 }

@@ -25,9 +25,9 @@ public class UpdateTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_task);
 
 
-        editTextTask = findViewById(R.id.editTextTask);
-        editTextDesc = findViewById(R.id.editTextDesc);
-        editTextFinishBy = findViewById(R.id.editTextFinishBy);
+        editTextTask = findViewById(R.id.editCategoryName);
+        editTextDesc = findViewById(R.id.editBudget);
+        editTextFinishBy = findViewById(R.id.editTextAlreadySpent);
 
         checkBoxFinished = findViewById(R.id.checkBoxFinished);
 
