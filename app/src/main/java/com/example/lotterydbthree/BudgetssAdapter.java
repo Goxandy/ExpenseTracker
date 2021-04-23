@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHolder> {
+public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksViewHolder> {
 
     private Context mCtx;
-    private List<Task> taskList;
+    private List<Budget> budgetList;
 
-    public TasksAdapter(Context mCtx, List<Task> taskList) {
+    public BudgetssAdapter(Context mCtx, List<Budget> budgetList) {
         this.mCtx = mCtx;
-        this.taskList = taskList;
+        this.budgetList = budgetList;
     }
 
     @Override
@@ -29,9 +29,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     @Override
     public void onBindViewHolder(TasksViewHolder holder, int position) {
-        Task t = taskList.get(position);
-        holder.textViewTask.setText(t.getTask());
-        holder.textViewDesc.setText(t.getDesc());
+        Budget t = budgetList.get(position);
+        holder.textViewTask.setText(t.getBudget());
+        float total = Float.parseFloat(t.getTotal());
+        float amountSpent = Float.parseFloat(t.getAmountSpent());
+        float remaining = total - amountSpent;
+        holder.textViewDesc.setText(remaining + " remaining out of " + total);
         /*
         if (t.isFinished())
             holder.textViewStatus.setText("Completed");
@@ -42,7 +45,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     @Override
     public int getItemCount() {
-        return taskList.size();
+        return budgetList.size();
     }
 
     class TasksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -62,10 +65,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
         @Override
         public void onClick(View view) {
-            Task task = taskList.get(getAdapterPosition());
+            Budget budget = budgetList.get(getAdapterPosition());
 
-            Intent intent = new Intent(mCtx, UpdateTaskActivity.class);
-            intent.putExtra("task", task);
+            Intent intent = new Intent(mCtx, UpdateBudgetsActivity.class);
+            intent.putExtra("budget", budget);
 
             mCtx.startActivity(intent);
         }

@@ -7,19 +7,19 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity
-public class Task implements Serializable {
+public class Budget implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "task")
-    private String task;
+    @ColumnInfo(name = "budget")
+    private String budget;
 
-    @ColumnInfo(name = "desc")
-    private String desc;
+    @ColumnInfo(name = "total")
+    private String total;
 
-    @ColumnInfo(name = "finish_by")
-    private String finishBy;
+    @ColumnInfo(name = "amountSpent")
+    private String amountSpent;
 
     @ColumnInfo(name = "finished")
     private boolean finished;
@@ -36,28 +36,28 @@ public class Task implements Serializable {
         this.id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getBudget() {
+        return budget;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setBudget(String budget) {
+        this.budget = budget;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getTotal() {
+        return total;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setTotal(String total) {
+        this.total = total;
     }
 
-    public String getFinishBy() {
-        return finishBy;
+    public String getAmountSpent() {
+        return amountSpent;
     }
 
-    public void setFinishBy(String finishBy) {
-        this.finishBy = finishBy;
+    public void setAmountSpent(String amountSpent) {
+        this.amountSpent = amountSpent;
     }
 
     public boolean isFinished() {

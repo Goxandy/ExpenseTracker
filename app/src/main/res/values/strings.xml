@@ -4,7 +4,7 @@
     <string name="etCategoryName">Enter budget name</string>
     <string name="etBudget">Enter budget</string>
     <string name="etAlreadySpent">Enter amount already spent</string>
-    <string name="imgPlaceholder">Shopping Cart</string>
+    <string name="imgPlaceholder">Expense Tracker</string>
     <string name="categoryName">Category Name</string>
 
 </resources>

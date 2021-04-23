@@ -9,18 +9,18 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface TaskDao {
+public interface BudgetDao {
 
-    @Query("SELECT * FROM task")
-    List<Task> getAll();
+    @Query("SELECT * FROM Budget")
+    List<Budget> getAll();
 
     @Insert
-    void insert(Task task);
+    void insert(Budget budget);
 
     @Delete
-    void delete(Task task);
+    void delete(Budget budget);
 
     @Update
-    void update(Task task);
+    void update(Budget budget);
 
 }

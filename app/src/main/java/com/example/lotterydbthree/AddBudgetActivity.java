@@ -9,35 +9,35 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddTaskActivity extends AppCompatActivity {
+public class AddBudgetActivity extends AppCompatActivity {
 
-    private EditText editTextTask, editTextDesc, editTextFinishBy;
+    private EditText editTextBudget, editTextDesc, editTextFinishBy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
-        editTextTask = findViewById(R.id.editCategoryName);
+        editTextBudget = findViewById(R.id.editCategoryName);
         editTextDesc = findViewById(R.id.editBudget);
         editTextFinishBy = findViewById(R.id.editTextAlreadySpent);
 
         findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveTask();
+                saveBudget();
             }
         });
     }
 
-    private void saveTask() {
-        final String sTask = editTextTask.getText().toString().trim();
+    private void saveBudget() {
+        final String sTask = editTextBudget.getText().toString().trim();
         final String sDesc = editTextDesc.getText().toString().trim();
         final String sFinishBy = editTextFinishBy.getText().toString().trim();
 
         if (sTask.isEmpty()) {
-            editTextTask.setError("Task required");
-            editTextTask.requestFocus();
+            editTextBudget.setError("Budget required");
+            editTextBudget.requestFocus();
             return;
         }
 
@@ -53,22 +53,22 @@ public class AddTaskActivity extends AppCompatActivity {
             return;
         }
 
-        class SaveTask extends AsyncTask<Void, Void, Void> {
+        class SaveBudget extends AsyncTask<Void, Void, Void> {
 
             @Override
             protected Void doInBackground(Void... voids) {
 
-                //creating a task
-                Task task = new Task();
-                task.setTask(sTask);
-                task.setDesc(sDesc);
-                task.setFinishBy(sFinishBy);
-                task.setFinished(false);
+                //creating a budget
+                Budget budget = new Budget();
+                budget.setBudget(sTask);
+                budget.setTotal(sDesc);
+                budget.setAmountSpent(sFinishBy);
+                budget.setFinished(false);
 
                 //adding to database
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .taskDao()
-                        .insert(task);
+                        .insert(budget);
                 return null;
             }
 
@@ -81,7 +81,7 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         }
 
-        SaveTask st = new SaveTask();
+        SaveBudget st = new SaveBudget();
         st.execute();
     }
 

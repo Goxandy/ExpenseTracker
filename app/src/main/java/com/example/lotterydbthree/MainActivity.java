@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddBudgetActivity.class);
                 startActivity(intent);
             }
         });
 
 
-        getTasks();
+        getBudgets();
 
     }
 
@@ -60,28 +60,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void getTasks() {
-        class GetTasks extends AsyncTask<Void, Void, List<Task>> {
+    private void getBudgets() {
+        class GetBudgets extends AsyncTask<Void, Void, List<Budget>> {
 
             @Override
-            protected List<Task> doInBackground(Void... voids) {
-                List<Task> taskList = DatabaseClient
+            protected List<Budget> doInBackground(Void... voids) {
+                List<Budget> budgetList = DatabaseClient
                         .getInstance(getApplicationContext())
                         .getAppDatabase()
                         .taskDao()
                         .getAll();
-                return taskList;
+                return budgetList;
             }
 
             @Override
-            protected void onPostExecute(List<Task> tasks) {
-                super.onPostExecute(tasks);
-                TasksAdapter adapter = new TasksAdapter(MainActivity.this, tasks);
+            protected void onPostExecute(List<Budget> budgets) {
+                super.onPostExecute(budgets);
+                BudgetssAdapter adapter = new BudgetssAdapter(MainActivity.this, budgets);
                 recyclerView.setAdapter(adapter);
             }
         }
 
-        GetTasks gt = new GetTasks();
+        GetBudgets gt = new GetBudgets();
         gt.execute();
     }
 

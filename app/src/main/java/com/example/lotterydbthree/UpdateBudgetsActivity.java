@@ -13,9 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateTaskActivity extends AppCompatActivity {
+public class UpdateBudgetsActivity extends AppCompatActivity {
 
-    private EditText editTextTask, editTextDesc, editTextFinishBy;
+    private EditText editTextBudget, editTextTotal, editTextAmountSpent;
     private CheckBox checkBoxFinished;
 
 
@@ -25,22 +25,22 @@ public class UpdateTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_task);
 
 
-        editTextTask = findViewById(R.id.editCategoryName);
-        editTextDesc = findViewById(R.id.editBudget);
-        editTextFinishBy = findViewById(R.id.editTextAlreadySpent);
+        editTextBudget = findViewById(R.id.editCategoryName);
+        editTextTotal = findViewById(R.id.editBudget);
+        editTextAmountSpent = findViewById(R.id.editTextAlreadySpent);
 
         checkBoxFinished = findViewById(R.id.checkBoxFinished);
 
 
-        final Task task = (Task) getIntent().getSerializableExtra("task");
+        final Budget budget = (Budget) getIntent().getSerializableExtra("budget");
 
-        loadTask(task);
+        loadTask(budget);
 
         findViewById(R.id.button_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_LONG).show();
-                updateTask(task);
+                updateTask(budget);
             }
         });
 
@@ -48,12 +48,12 @@ public class UpdateTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateTaskActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateBudgetsActivity.this);
                 builder.setTitle("Are you sure?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteTask(task);
+                        deleteTask(budget);
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -69,33 +69,33 @@ public class UpdateTaskActivity extends AppCompatActivity {
         });
     }
 
-    private void loadTask(Task task) {
-        editTextTask.setText(task.getTask());
-        editTextDesc.setText(task.getDesc());
-        editTextFinishBy.setText(task.getFinishBy());
-        checkBoxFinished.setChecked(task.isFinished());
+    private void loadTask(Budget budget) {
+        editTextBudget.setText(budget.getBudget());
+        editTextTotal.setText(budget.getTotal());
+        editTextAmountSpent.setText(budget.getAmountSpent());
+        checkBoxFinished.setChecked(budget.isFinished());
     }
 
-    private void updateTask(final Task task) {
-        final String sTask = editTextTask.getText().toString().trim();
-        final String sDesc = editTextDesc.getText().toString().trim();
-        final String sFinishBy = editTextFinishBy.getText().toString().trim();
+    private void updateTask(final Budget budget) {
+        final String sTask = editTextBudget.getText().toString().trim();
+        final String sDesc = editTextTotal.getText().toString().trim();
+        final String sFinishBy = editTextAmountSpent.getText().toString().trim();
 
         if (sTask.isEmpty()) {
-            editTextTask.setError("Task required");
-            editTextTask.requestFocus();
+            editTextBudget.setError("Budget required");
+            editTextBudget.requestFocus();
             return;
         }
 
         if (sDesc.isEmpty()) {
-            editTextDesc.setError("Desc required");
-            editTextDesc.requestFocus();
+            editTextTotal.setError("Desc required");
+            editTextTotal.requestFocus();
             return;
         }
 
         if (sFinishBy.isEmpty()) {
-            editTextFinishBy.setError("Finish by required");
-            editTextFinishBy.requestFocus();
+            editTextAmountSpent.setError("Finish by required");
+            editTextAmountSpent.requestFocus();
             return;
         }
 
@@ -103,13 +103,13 @@ public class UpdateTaskActivity extends AppCompatActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                task.setTask(sTask);
-                task.setDesc(sDesc);
-                task.setFinishBy(sFinishBy);
-                task.setFinished(checkBoxFinished.isChecked());
+                budget.setBudget(sTask);
+                budget.setTotal(sDesc);
+                budget.setAmountSpent(sFinishBy);
+                budget.setFinished(checkBoxFinished.isChecked());
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .taskDao()
-                        .update(task);
+                        .update(budget);
                 return null;
             }
 
@@ -118,7 +118,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
                 Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
                 finish();
-                startActivity(new Intent(UpdateTaskActivity.this, MainActivity.class));
+                startActivity(new Intent(UpdateBudgetsActivity.this, MainActivity.class));
             }
         }
 
@@ -127,14 +127,14 @@ public class UpdateTaskActivity extends AppCompatActivity {
     }
 
 
-    private void deleteTask(final Task task) {
+    private void deleteTask(final Budget budget) {
         class DeleteTask extends AsyncTask<Void, Void, Void> {
 
             @Override
             protected Void doInBackground(Void... voids) {
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .taskDao()
-                        .delete(task);
+                        .delete(budget);
                 return null;
             }
 
@@ -143,7 +143,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
                 Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
                 finish();
-                startActivity(new Intent(UpdateTaskActivity.this, MainActivity.class));
+                startActivity(new Intent(UpdateBudgetsActivity.this, MainActivity.class));
             }
         }
 
