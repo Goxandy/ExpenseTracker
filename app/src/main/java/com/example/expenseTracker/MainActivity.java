@@ -1,4 +1,4 @@
-package com.example.lotterydbthree;
+package com.example.expenseTracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

@@ -1,4 +1,4 @@
-package com.example.lotterydbthree;
+package com.example.expenseTracker;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

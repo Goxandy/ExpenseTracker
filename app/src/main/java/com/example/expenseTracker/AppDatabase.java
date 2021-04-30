@@ -1,4 +1,4 @@
-package com.example.lotterydbthree;
+package com.example.expenseTracker;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

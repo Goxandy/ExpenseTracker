@@ -1,4 +1,4 @@
-package com.example.lotterydbthree;
+package com.example.expenseTracker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

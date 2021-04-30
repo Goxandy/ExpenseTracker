@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lotterydbthree">
+    package="com.example.expenseTracker">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateBudgetsActivity"></activity>
-        <activity android:name=".AddBudgetActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.expenseTracker.UpdateBudgetsActivity"></activity>
+        <activity android:name="com.example.expenseTracker.AddBudgetActivity" />
+        <activity android:name="com.example.expenseTracker.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
