@@ -16,7 +16,7 @@ public class AddBudgetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_task);
+        setContentView(R.layout.activity_add_budget);
 
         editTextBudget = findViewById(R.id.editCategoryName);
         editTextDesc = findViewById(R.id.editBudget);

@@ -22,7 +22,7 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_task);
+        setContentView(R.layout.activity_update_budget);
 
 
         editTextBudget = findViewById(R.id.editCategoryName);
