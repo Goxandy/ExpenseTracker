@@ -5,12 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);;
+        setContentView(R.layout.activity_main);
+        ;
         // toolbar = (Toolbar) findViewById(R.layout.toolbar_main);
         // setSupportActionBar(toolbar);
 
@@ -58,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    protected void iconSelection() {
 
+
+    }
 
     private void getBudgets() {
         class GetBudgets extends AsyncTask<Void, Void, List<Budget>> {

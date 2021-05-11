@@ -51,83 +51,95 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
                 <ImageView
+                    android:id="@+id/icon1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_car"
-                    android:contentDescription="@string/image_car"
-                />
+                    android:contentDescription="car"
+                    android:src="@drawable/ic_car" />
+
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_cigarette"
-                    android:contentDescription="@string/image_car"
-                    />
-                <ImageView
+                    android:id="@+id/icon2"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_coffee"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="cigarette"
+                    android:src="@drawable/ic_cigarette" />
+
                 <ImageView
+                    android:id="@+id/icon3"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_food"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="coffee"
+                    android:src="@drawable/ic_coffee" />
+
                 <ImageView
+                    android:id="@+id/icon4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_furniture"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="food"
+                    android:src="@drawable/ic_food" />
+
                 <ImageView
+                    android:id="@+id/icon5"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_games"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="furniture"
+                    android:src="@drawable/ic_furniture" />
+
                 <ImageView
+                    android:id="@+id/icon6"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_home"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="games"
+                    android:src="@drawable/ic_games" />
+
                 <ImageView
+                    android:id="@+id/icon7"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_music"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="home"
+                    android:src="@drawable/ic_home" />
+
                 <ImageView
+                    android:id="@+id/icon8"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_phone"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="music"
+                    android:src="@drawable/ic_music" />
+
                 <ImageView
+                    android:id="@+id/icon9"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_wine"
-                    android:contentDescription="@string/image_car"
-                    />
+                    android:contentDescription="phone"
+                    android:src="@drawable/ic_phone" />
+
+                <ImageView
+                    android:id="@+id/icon10"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:contentDescription="wine"
+                    android:src="@drawable/ic_wine" />
             </LinearLayout>
         </HorizontalScrollView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

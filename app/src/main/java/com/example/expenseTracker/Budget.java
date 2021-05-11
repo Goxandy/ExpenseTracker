@@ -24,6 +24,9 @@ public class Budget implements Serializable {
     @ColumnInfo(name = "finished")
     private boolean finished;
 
+    @ColumnInfo(name= "icon")
+    private String icon;
+
 
     /*
      * Getters and Setters
@@ -67,4 +70,8 @@ public class Budget implements Serializable {
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
+
+    public String getIcon() { return icon; }
+
+    public void setIcon(String icon) { this.icon = icon; }
 }

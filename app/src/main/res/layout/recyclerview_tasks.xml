@@ -17,18 +17,13 @@
             android:orientation="horizontal"
             android:padding="10dp"
             >
-                <com.google.android.material.imageview.ShapeableImageView
+                <ImageView
                     android:id="@+id/imgCategory"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorPrimaryDark"
-                    android:contentDescription="@string/imgPlaceholder"
-                    android:scaleType="center"
-                    app:srcCompat="@drawable/ic_swap_vert_circle_white_48dp"
-                    app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
-
-
+                    android:src="@drawable/ic_music"
+                    />
 
 
         <LinearLayout
