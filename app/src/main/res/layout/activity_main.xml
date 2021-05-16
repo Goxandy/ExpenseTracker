@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimaryDark">
 
 
     <include
@@ -32,7 +33,7 @@
         android:layout_margin="8dp"
         android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_add"
-        android:tint="@color/colorLight"
+        android:tint="@color/colorBlack"
         app:fabSize="normal" />
 
 </RelativeLayout>

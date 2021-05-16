@@ -6,14 +6,19 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="@drawable/logo_et_s"
         app:title="@string/app_name"
         app:titleTextColor="@color/colorWhite"
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#0A111F"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+
+        </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>

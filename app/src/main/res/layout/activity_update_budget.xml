@@ -4,53 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateBudgetsActivity">
+    tools:context=".UpdateBudgetsActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <include
+        android:id="@+id/icToolbar2"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:orientation="vertical"
         android:padding="16dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="Update Task"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="40dp"
+            android:text="Budget Name"
             android:textAlignment="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorLight"
+            android:textSize="32dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorLight"
+            android:src="@drawable/ic_music" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Update Budget"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorLight" />
 
         <EditText
             android:id="@+id/editCategoryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Task name" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorLight"
+            android:hint="Budget name"
+            android:textColor="@color/colorLight"
+            android:textColorHint="@color/colorLight" />
 
         <EditText
             android:id="@+id/editBudget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorLight"
+            android:hint="Description"
+            android:textColor="@color/colorLight"
+            android:textColorHint="@color/colorLight" />
 
         <EditText
             android:id="@+id/editTextAlreadySpent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Finished by" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorLight"
+            android:hint="Finished by"
+            android:textColor="@color/colorLight"
+            android:textColorHint="@color/colorLight" />
 
         <CheckBox
             android:id="@+id/checkBoxFinished"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mark as finished" />
+            android:layout_marginTop="20dp"
+            android:buttonTint="@color/colorLight"
+            android:text="Mark as finished"
+            android:textColor="@color/colorLight" />
 
         <Button
             android:id="@+id/button_update"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
             android:text="Update"
             android:textAllCaps="false"
@@ -62,7 +104,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:background="@color/colorRed"
             android:text="Delete"
             android:textAllCaps="false"

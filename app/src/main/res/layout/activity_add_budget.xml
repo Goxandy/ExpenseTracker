@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddBudgetActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimaryDark">
 
     <include
         android:id="@+id/icToolbar2"
@@ -33,7 +34,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorLight"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
             android:text="@string/chooseIcon"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorLight"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -57,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/colorLight">
 
                 <ImageView
                     android:id="@+id/icon1"
@@ -146,28 +148,36 @@
             android:text="@string/chooseCategoryName"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorLight"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editCategoryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/etCategoryName" />
+            android:textColor="@color/colorLight"
+            android:backgroundTint="@color/colorLight"
+            android:hint="@string/etCategoryName"
+            android:textColorHint="@color/colorLight"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/chooseBudget"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorLight"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editBudget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorLight"
+            android:backgroundTint="@color/colorLight"
             android:hint="@string/etBudget"
+            android:textColorHint="@color/colorLight"
             android:numeric="decimal" />
         <TextView
             android:layout_width="match_parent"
@@ -175,15 +185,19 @@
             android:text="@string/chooseAlreadySpent"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorLight"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/editTextAlreadySpent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorLight"
+            android:backgroundTint="@color/colorLight"
             android:hint="@string/etAlreadySpent"
+            android:textColorHint="@color/colorLight"
             android:numeric="decimal" />
 
         <Button
@@ -195,7 +209,7 @@
             android:background="@color/colorAccent"
             android:text="Save"
             android:textAllCaps="false"
-            android:textColor="@color/colorLight"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
     </LinearLayout>
