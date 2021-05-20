@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateBudgetsActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="?attr/colorSecondary"
+    >
 
     <include
         android:id="@+id/icToolbar2"
@@ -22,12 +23,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
             android:text="Budget Name"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorLight"
+            android:textColor="?attr/colorText"
             android:textSize="32dp"
             android:textStyle="bold"/>
 
@@ -36,79 +37,166 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            android:background="@color/colorLight"
+            android:background="@color/colorWhite"
             android:src="@drawable/ic_music" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="?attr/colorText"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:scaleY="4"
+            android:max="100"
+            android:progress="50"
+            android:progressBackgroundTint="@color/colorGreen"
+            android:progressTint="@color/colorRed"/>
+
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="Update Budget"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorLight" />
+            android:textColor="?attr/colorText" />
 
-        <EditText
-            android:id="@+id/editCategoryName"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/colorLight"
-            android:hint="Budget name"
-            android:textColor="@color/colorLight"
-            android:textColorHint="@color/colorLight" />
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:layout_marginTop="20dp">
 
-        <EditText
-            android:id="@+id/editBudget"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Add to budget"
+                android:textSize="20dp"
+                android:textColor="?attr/colorText" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="120dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/colorLight"
-            android:hint="Description"
-            android:textColor="@color/colorLight"
-            android:textColorHint="@color/colorLight" />
+            >
 
-        <EditText
-            android:id="@+id/editTextAlreadySpent"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Already Spent"
+                android:textSize="20dp"
+                android:textColor="?attr/colorText" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/addToAlreadySpent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:switchMinWidth="100dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/colorLight"
-            android:hint="Finished by"
-            android:textColor="@color/colorLight"
-            android:textColorHint="@color/colorLight" />
+            >
 
-        <CheckBox
-            android:id="@+id/checkBoxFinished"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textSize="20dp"
+                android:textColor="?attr/colorText" />
+
+            <EditText
+                android:id="@+id/editAmountUpdateBudget"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorText"
+                android:textColor="?attr/colorText"
+                android:textColorHint="?attr/colorText"
+                android:layout_marginLeft="70dp"
+                android:numeric="decimal"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:buttonTint="@color/colorLight"
-            android:text="Mark as finished"
-            android:textColor="@color/colorLight" />
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/button_update"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary"
+            android:background="?attr/colorPrimary"
+            android:layout_marginLeft="10dp"
             android:text="Update"
             android:textAllCaps="false"
-            android:textColor="@color/colorLight" />
+            android:textColor="?attr/colorText" />
 
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:text="Reset"
+            android:background="?attr/colorAccent"
+            android:textColor="?attr/colorText"
+            android:textAllCaps="false"
+            />
 
         <Button
             android:id="@+id/button_delete"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
             android:background="@color/colorRed"
+            android:layout_marginLeft="15dp"
             android:text="Delete"
             android:textAllCaps="false"
-            android:textColor="@color/colorLight" />
+            android:textColor="?attr/colorText" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

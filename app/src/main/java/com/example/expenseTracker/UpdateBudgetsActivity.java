@@ -29,12 +29,12 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         editTextTotal = findViewById(R.id.editBudget);
         editTextAmountSpent = findViewById(R.id.editTextAlreadySpent);
 
-        checkBoxFinished = findViewById(R.id.checkBoxFinished);
+        // checkBoxFinished = findViewById(R.id.checkBoxFinished);
 
 
         final Budget budget = (Budget) getIntent().getSerializableExtra("budget");
 
-        loadTask(budget);
+        // loadTask(budget);
 
         findViewById(R.id.button_update).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,12 +69,16 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         });
     }
 
+    /*
+
     private void loadTask(Budget budget) {
         editTextBudget.setText(budget.getBudget());
         editTextTotal.setText(budget.getTotal());
         editTextAmountSpent.setText(budget.getAmountSpent());
         checkBoxFinished.setChecked(budget.isFinished());
     }
+
+     */
 
     private void updateTask(final Budget budget) {
         final String sTask = editTextBudget.getText().toString().trim();

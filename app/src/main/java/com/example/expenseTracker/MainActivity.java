@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // setTheme(R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ;
+
         // toolbar = (Toolbar) findViewById(R.layout.toolbar_main);
         // setSupportActionBar(toolbar);
 

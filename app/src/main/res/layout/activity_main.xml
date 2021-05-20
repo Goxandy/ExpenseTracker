@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="?attr/colorSecondary">
+
+
 
 
     <include
@@ -17,12 +19,19 @@
         <!-- Layout for content is here. This can be a RelativeLayout  -->
 
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_tasks"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/icToolbar"/>
+        android:layout_below="@id/icToolbar">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/icToolbar"/>
+
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_button_add"
@@ -31,9 +40,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="8dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="?attr/colorAccent"
         android:src="@drawable/ic_add"
-        android:tint="@color/colorBlack"
+        android:tint="?attr/colorText"
         app:fabSize="normal" />
 
 </RelativeLayout>

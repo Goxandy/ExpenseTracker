@@ -4,9 +4,18 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/lightPrimary</item>
+        <item name="colorSecondary">@color/lightSecondary</item>
+        <item name="colorAccent">@color/lightAccent</item>
+        <item name="colorText">@color/lightText</item>
+    </style>
+
+    <style name="AppTheme_Dark" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/darkPrimary</item>
+        <item name="colorSecondary">@color/darkSecondary</item>
+        <item name="colorAccent">@color/darkAccent</item>
+        <item name="colorText">@color/darkText</item>
     </style>
 
     <style name="circleImageViewStyle" >
