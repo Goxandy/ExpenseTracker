@@ -12,13 +12,16 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UpdateBudgetsActivity extends AppCompatActivity {
 
     private SwitchCompat themeSwitch;
+    private TextView tvSpent, tvBudgeted;
+    private ImageView ivCat;
     private EditText editTextBudget, editTextTotal, editTextAmountSpent;
-    private CheckBox checkBoxFinished;
     private Boolean bTheme;
 
 
@@ -34,16 +37,9 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_budget);
 
 
-        editTextBudget = findViewById(R.id.editCategoryName);
-        editTextTotal = findViewById(R.id.editBudget);
-        editTextAmountSpent = findViewById(R.id.editTextAlreadySpent);
-
-        // checkBoxFinished = findViewById(R.id.checkBoxFinished);
-
-
         final Budget budget = (Budget) getIntent().getSerializableExtra("budget");
 
-        // loadTask(budget);
+        loadTask(budget);
 
         findViewById(R.id.button_update).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,16 +87,37 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         });
     }
 
-    /*
-
     private void loadTask(Budget budget) {
-        editTextBudget.setText(budget.getBudget());
-        editTextTotal.setText(budget.getTotal());
-        editTextAmountSpent.setText(budget.getAmountSpent());
-        checkBoxFinished.setChecked(budget.isFinished());
+        tvSpent = findViewById(R.id.alreadySpent);
+        tvSpent.setText("Amount spent: " + budget.getAmountSpent());
+        tvBudgeted = findViewById(R.id.budget);
+        tvBudgeted.setText("Budgeted: " + budget.getTotal());
+        ivCat = findViewById(R.id.imgCategory);
+        switch(budget.getIcon()){
+            case "car": ivCat.setImageResource(R.drawable.ic_car);
+                break;
+            case "cigarette": ivCat.setImageResource(R.drawable.ic_cigarette);
+                break;
+            case "coffee": ivCat.setImageResource(R.drawable.ic_coffee);
+                break;
+            case "food": ivCat.setImageResource(R.drawable.ic_food);
+                break;
+            case "furniture": ivCat.setImageResource(R.drawable.ic_furniture);
+                break;
+            case "games": ivCat.setImageResource(R.drawable.ic_games);
+                break;
+            case "home": ivCat.setImageResource(R.drawable.ic_home);
+                break;
+            case "music": ivCat.setImageResource(R.drawable.ic_music);
+                break;
+            case "phone": ivCat.setImageResource(R.drawable.ic_phone);
+                break;
+            case "wine": ivCat.setImageResource(R.drawable.ic_wine);
+                break;
+            default: ivCat.setImageResource(R.drawable.ic_music);
+        }
     }
 
-     */
 
     private void updateTask(final Budget budget) {
         final String sTask = editTextBudget.getText().toString().trim();
@@ -132,7 +149,6 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 budget.setBudget(sTask);
                 budget.setTotal(sDesc);
                 budget.setAmountSpent(sFinishBy);
-                budget.setFinished(checkBoxFinished.isChecked());
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .taskDao()
                         .update(budget);
