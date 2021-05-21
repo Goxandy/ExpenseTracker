@@ -8,6 +8,7 @@
         <item name="colorSecondary">@color/lightSecondary</item>
         <item name="colorAccent">@color/lightAccent</item>
         <item name="colorText">@color/lightText</item>
+        <item name="theme_Icon">@drawable/ic_sun</item>
     </style>
 
     <style name="AppTheme_Dark" parent="Theme.AppCompat.DayNight.DarkActionBar">
@@ -16,6 +17,7 @@
         <item name="colorSecondary">@color/darkSecondary</item>
         <item name="colorAccent">@color/darkAccent</item>
         <item name="colorText">@color/darkText</item>
+        <item name="theme_Icon">@drawable/ic_moon</item>
     </style>
 
     <style name="circleImageViewStyle" >

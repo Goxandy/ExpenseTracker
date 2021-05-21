@@ -33,7 +33,7 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         bTheme = intent.getExtras().getBoolean("theme");
-        if(bTheme ==false){
+        if(bTheme == false){
             setTheme(R.style.AppTheme_Dark);
         }
         setContentView(R.layout.activity_update_budget);

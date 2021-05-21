@@ -4,4 +4,5 @@
     <attr name="colorSecondary" format="color"/>
     <attr name="colorAccent" format="color" />
     <attr name="colorText" format="color" />
+    <attr name="theme_Icon" format="reference" />
 </resources>

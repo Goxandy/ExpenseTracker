@@ -17,9 +17,10 @@
         app:titleTextColor="?attr/colorText">
 
         <ImageView
+            android:id="@+id/theme_Icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_moon"
+            android:src="?attr/theme_Icon"
             android:layout_gravity="right"
             android:layout_marginRight="20dp"
             />
