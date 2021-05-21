@@ -2,6 +2,7 @@ package com.example.expenseTracker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.os.Bundle;
 
@@ -15,13 +16,21 @@ import android.widget.Toast;
 
 public class UpdateBudgetsActivity extends AppCompatActivity {
 
+    private SwitchCompat themeSwitch;
     private EditText editTextBudget, editTextTotal, editTextAmountSpent;
     private CheckBox checkBoxFinished;
+    private Boolean bTheme;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        bTheme = intent.getExtras().getBoolean("theme");
+        if(bTheme ==false){
+            setTheme(R.style.AppTheme_Dark);
+        }
         setContentView(R.layout.activity_update_budget);
 
 
@@ -65,6 +74,19 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
 
                 AlertDialog ad = builder.create();
                 ad.show();
+            }
+        });
+
+        themeSwitch = findViewById(R.id.switch_theme);
+        themeSwitch.setChecked(bTheme);
+        themeSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bTheme = !bTheme;
+                finish();
+                Intent intent = new Intent(getApplicationContext(), UpdateBudgetsActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
             }
         });
     }
@@ -122,7 +144,9 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
                 Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
                 finish();
-                startActivity(new Intent(UpdateBudgetsActivity.this, MainActivity.class));
+                Intent intent = new Intent(UpdateBudgetsActivity.this, MainActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
             }
         }
 
@@ -147,7 +171,9 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
                 Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
                 finish();
-                startActivity(new Intent(UpdateBudgetsActivity.this, MainActivity.class));
+                Intent intent = new Intent(UpdateBudgetsActivity.this, MainActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
             }
         }
 

@@ -23,10 +23,12 @@ public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksV
 
     private Context mCtx;
     private List<Budget> budgetList;
+    private Boolean bTheme;
 
-    public BudgetssAdapter(Context mCtx, List<Budget> budgetList) {
+    public BudgetssAdapter(Context mCtx, List<Budget> budgetList, boolean bTheme) {
         this.mCtx = mCtx;
         this.budgetList = budgetList;
+        this.bTheme = bTheme;
     }
 
     @Override
@@ -106,6 +108,7 @@ public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksV
 
             Intent intent = new Intent(mCtx, UpdateBudgetsActivity.class);
             intent.putExtra("budget", budget);
+            intent.putExtra("theme", bTheme);
 
             mCtx.startActivity(intent);
         }

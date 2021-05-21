@@ -1,6 +1,7 @@
 package com.example.expenseTracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.os.AsyncTask;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,16 +28,41 @@ public class MainActivity extends AppCompatActivity {
     */
 
     private FloatingActionButton buttonAddTask;
+    private SwitchCompat themeSwitch;
     private RecyclerView recyclerView;
     private Toolbar toolbar;
 
+    public Boolean getBTheme() {
+        return bTheme;
+    }
+
+    private Boolean bTheme = true;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // setTheme(R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        if(intent.getExtras()!=null) {
+                bTheme = intent.getExtras().getBoolean("theme");
+                if (bTheme == false) {
+                    setTheme(R.style.AppTheme_Dark);
+            }
+        }
         setContentView(R.layout.activity_main);
 
-        // toolbar = (Toolbar) findViewById(R.layout.toolbar_main);
+        themeSwitch = findViewById(R.id.switch_theme);
+        themeSwitch.setChecked(bTheme);
+        themeSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bTheme = !bTheme;
+                finish();
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
+            }
+        });
         // setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recyclerview_tasks);
@@ -45,10 +72,14 @@ public class MainActivity extends AppCompatActivity {
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent intent = new Intent(MainActivity.this, AddBudgetActivity.class);
+                intent.putExtra("theme", bTheme);
                 startActivity(intent);
             }
         });
+
+
 
 
         getBudgets();
@@ -83,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Budget> budgets) {
                 super.onPostExecute(budgets);
-                BudgetssAdapter adapter = new BudgetssAdapter(MainActivity.this, budgets);
+
+                BudgetssAdapter adapter = new BudgetssAdapter(MainActivity.this, budgets, bTheme);
                 recyclerView.setAdapter(adapter);
             }
         }

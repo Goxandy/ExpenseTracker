@@ -2,7 +2,6 @@ package com.example.expenseTracker;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -11,20 +10,30 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddBudgetActivity extends AppCompatActivity {
 
+    private SwitchCompat themeSwitch;
     private EditText editTextBudget, editTextDesc, editTextFinishBy;
     private List<ImageView> imageViewList = new ArrayList<>();
     private String icon = "ic_car.png";
+    private Boolean bTheme;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        bTheme = intent.getExtras().getBoolean("theme");
+        if(bTheme ==false){
+            setTheme(R.style.AppTheme_Dark);
+        }
         setContentView(R.layout.activity_add_budget);
 
         editTextBudget = findViewById(R.id.editCategoryName);
@@ -35,6 +44,19 @@ public class AddBudgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveBudget();
+            }
+        });
+
+        themeSwitch = findViewById(R.id.switch_theme);
+        themeSwitch.setChecked(bTheme);
+        themeSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bTheme = !bTheme;
+                finish();
+                Intent intent = new Intent(getApplicationContext(), AddBudgetActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
             }
         });
 
@@ -113,7 +135,10 @@ public class AddBudgetActivity extends AppCompatActivity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
+
                 Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
             }
         }
