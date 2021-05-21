@@ -21,7 +21,7 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
     private SwitchCompat themeSwitch;
     private TextView tvSpent, tvBudgeted;
     private ImageView ivCat;
-    private EditText editTextBudget, editTextTotal, editTextAmountSpent;
+    private EditText editAmountBudget, editAmountAlreadySpent;
     private Boolean bTheme;
 
 
@@ -38,6 +38,8 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
 
 
         final Budget budget = (Budget) getIntent().getSerializableExtra("budget");
+
+
 
         loadTask(budget);
 
@@ -119,36 +121,27 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
     }
 
 
-    private void updateTask(final Budget budget) {
-        final String sTask = editTextBudget.getText().toString().trim();
-        final String sDesc = editTextTotal.getText().toString().trim();
-        final String sFinishBy = editTextAmountSpent.getText().toString().trim();
+    private void updateTask(Budget budget) {
 
-        if (sTask.isEmpty()) {
-            editTextBudget.setError("Budget required");
-            editTextBudget.requestFocus();
-            return;
+        editAmountBudget = findViewById(R.id.editAmountBudget);
+        editAmountAlreadySpent = findViewById(R.id.addAmountAlreadySpent);
+
+        if(editAmountBudget.getText().toString().trim().isEmpty()){
+        } else {
+            float newBudgetFloat = Float.parseFloat(budget.getTotal())+Float.parseFloat(editAmountBudget.getText().toString());
+            budget.setTotal(String.valueOf(newBudgetFloat));
         }
 
-        if (sDesc.isEmpty()) {
-            editTextTotal.setError("Desc required");
-            editTextTotal.requestFocus();
-            return;
-        }
-
-        if (sFinishBy.isEmpty()) {
-            editTextAmountSpent.setError("Finish by required");
-            editTextAmountSpent.requestFocus();
-            return;
+        if(editAmountAlreadySpent.getText().toString().trim().isEmpty()){
+        } else {
+            float newSpentAmount = Float.parseFloat(budget.getAmountSpent())+Float.parseFloat(editAmountAlreadySpent.getText().toString());
+            budget.setAmountSpent(String.valueOf(newSpentAmount));
         }
 
         class UpdateTask extends AsyncTask<Void, Void, Void> {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                budget.setBudget(sTask);
-                budget.setTotal(sDesc);
-                budget.setAmountSpent(sFinishBy);
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .taskDao()
                         .update(budget);
