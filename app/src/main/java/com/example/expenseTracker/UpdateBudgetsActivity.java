@@ -42,9 +42,6 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         final Budget budget = (Budget) getIntent().getSerializableExtra("budget");
 
 
-
-        loadTask(budget);
-
         findViewById(R.id.button_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,9 +91,12 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 finish();
                 Intent intent = new Intent(getApplicationContext(), UpdateBudgetsActivity.class);
                 intent.putExtra("theme", bTheme);
+                intent.putExtra("budget", budget);
                 startActivity(intent);
             }
         });
+
+        loadTask(budget);
     }
 
     private void loadTask(Budget budget) {
