@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
     private TextView tvSpent, tvBudgeted;
     private ImageView ivCat;
     private EditText editAmountBudget, editAmountAlreadySpent;
+    private ProgressBar progressBar;
     private Boolean bTheme;
 
 
@@ -125,6 +127,15 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
             case "wine": ivCat.setImageResource(R.drawable.ic_wine);
                 break;
             default: ivCat.setImageResource(R.drawable.ic_music);
+        }
+
+        progressBar = findViewById(R.id.progressBar);
+        if(Float.parseFloat(budget.getAmountSpent())!=Float.parseFloat("0")) {
+            float progressRatio = 100 * Float.parseFloat(budget.getAmountSpent()) / Float.parseFloat(budget.getTotal());
+
+            progressBar.setProgress((int) progressRatio);
+        } else {
+            progressBar.setProgress(0);
         }
     }
 

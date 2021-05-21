@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -71,6 +72,14 @@ public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksV
             default: holder.imgCategory.setImageResource(R.drawable.ic_music);
         }
 
+        if(Float.parseFloat(t.getAmountSpent())!=Float.parseFloat("0")) {
+            float progressRatio = 100 * Float.parseFloat(t.getAmountSpent()) / Float.parseFloat(t.getTotal());
+
+            holder.progressBar.setProgress((int) progressRatio);
+        } else {
+            holder.progressBar.setProgress(0);
+        }
+
 
         /*
         if (t.isFinished())
@@ -89,6 +98,7 @@ public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksV
 
         TextView textViewStatus, textViewTask, textViewDesc, textViewFinishBy;
         ImageView imgCategory;
+        ProgressBar progressBar;
 
         public TasksViewHolder(View itemView) {
             super(itemView);
@@ -97,6 +107,7 @@ public class BudgetssAdapter extends RecyclerView.Adapter<BudgetssAdapter.TasksV
             textViewTask = itemView.findViewById(R.id.tvCategoryName);
             textViewDesc = itemView.findViewById(R.id.info);
             imgCategory = itemView.findViewById(R.id.imgCategory);
+            progressBar = itemView.findViewById(R.id.progressInfo);
 
 
             itemView.setOnClickListener(this);
