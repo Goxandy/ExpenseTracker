@@ -51,6 +51,14 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.button_reset).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Budget has been reset", Toast.LENGTH_LONG).show();
+                resetBudget(budget);
+            }
+        });
+
         findViewById(R.id.button_delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,6 +145,34 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
             float newSpentAmount = Float.parseFloat(budget.getAmountSpent())+Float.parseFloat(editAmountAlreadySpent.getText().toString());
             budget.setAmountSpent(String.valueOf(newSpentAmount));
         }
+
+        class UpdateTask extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
+                        .taskDao()
+                        .update(budget);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
+                finish();
+                Intent intent = new Intent(UpdateBudgetsActivity.this, MainActivity.class);
+                intent.putExtra("theme", bTheme);
+                startActivity(intent);
+            }
+        }
+
+        UpdateTask ut = new UpdateTask();
+        ut.execute();
+    }
+
+    private void resetBudget(Budget budget) {
+        budget.setAmountSpent("0");
 
         class UpdateTask extends AsyncTask<Void, Void, Void> {
 
