@@ -134,7 +134,7 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         if(Float.parseFloat(budget.getAmountSpent())!=Float.parseFloat("0")) {
             float progressRatio = 100 * Float.parseFloat(budget.getAmountSpent()) / Float.parseFloat(budget.getTotal());
-            tvPercentageSpent.setText(progressRatio + "%");
+            tvPercentageSpent.setText((int) progressRatio + "%");
             progressBar.setProgress((int) progressRatio);
         } else {
             progressBar.setProgress(0);

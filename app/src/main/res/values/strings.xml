@@ -7,7 +7,7 @@
     <string name="imgPlaceholder">Expense Tracker</string>
     <string name="categoryName">Category Name</string>
     <string name="chooseIcon">Set Icon</string>
-    <string name="chooseCategoryName">Set Category Name</string>
+    <string name="chooseCategoryName">Set Budget Name</string>
     <string name="chooseBudget">Set Budget</string>
     <string name="chooseAlreadySpent">Set Amount Already Spent</string>
     <string name="image_car">Car Image</string>
