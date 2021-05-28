@@ -9,6 +9,8 @@
         <item name="colorAccent">@color/lightAccent</item>
         <item name="colorText">@color/lightText</item>
         <item name="theme_Icon">@drawable/ic_sun</item>
+        <item name="android:windowAnimationStyle">@anim/go_in</item>
+        <item name="android:windowBackground">@color/lightSecondary</item>
     </style>
 
     <style name="AppTheme_Dark" parent="Theme.AppCompat.DayNight.DarkActionBar">
@@ -18,6 +20,8 @@
         <item name="colorAccent">@color/darkAccent</item>
         <item name="colorText">@color/darkText</item>
         <item name="theme_Icon">@drawable/ic_moon</item>
+        <item name="android:windowAnimationStyle">@anim/go_in</item>
+        <item name="android:windowBackground">@color/darkSecondary</item>
     </style>
 
     <style name="circleImageViewStyle" >

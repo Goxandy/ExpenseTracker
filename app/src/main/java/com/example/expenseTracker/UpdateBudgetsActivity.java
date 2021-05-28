@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class UpdateBudgetsActivity extends AppCompatActivity {
 
     private SwitchCompat themeSwitch;
-    private TextView tvSpent, tvBudgeted;
+    private TextView tvSpent, tvBudgeted, tvPercentageSpent, tvBudgetTitle;
     private ImageView ivCat;
     private EditText editAmountBudget, editAmountAlreadySpent;
     private ProgressBar progressBar;
@@ -100,10 +100,12 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
     }
 
     private void loadTask(Budget budget) {
-        tvSpent = findViewById(R.id.alreadySpent);
-        tvSpent.setText("Amount spent: " + budget.getAmountSpent());
-        tvBudgeted = findViewById(R.id.budget);
-        tvBudgeted.setText("Budgeted: " + budget.getTotal());
+        tvBudgetTitle = findViewById(R.id.budgetTitle);
+        tvBudgetTitle.setText(budget.getBudget());
+        tvSpent = findViewById(R.id.alreadySpentAmount);
+        tvSpent.setText(budget.getAmountSpent());
+        tvBudgeted = findViewById(R.id.budgetAmount);
+        tvBudgeted.setText(budget.getTotal());
         ivCat = findViewById(R.id.imgCategory);
         switch(budget.getIcon()){
             case "car": ivCat.setImageResource(R.drawable.ic_car);
@@ -128,14 +130,15 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 break;
             default: ivCat.setImageResource(R.drawable.ic_music);
         }
-
+        tvPercentageSpent = findViewById(R.id.percentageSpent);
         progressBar = findViewById(R.id.progressBar);
         if(Float.parseFloat(budget.getAmountSpent())!=Float.parseFloat("0")) {
             float progressRatio = 100 * Float.parseFloat(budget.getAmountSpent()) / Float.parseFloat(budget.getTotal());
-
+            tvPercentageSpent.setText(progressRatio + "%");
             progressBar.setProgress((int) progressRatio);
         } else {
             progressBar.setProgress(0);
+            tvPercentageSpent.setText("0%");
         }
     }
 

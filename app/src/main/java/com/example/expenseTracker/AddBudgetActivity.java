@@ -138,7 +138,6 @@ public class AddBudgetActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("theme", bTheme);
                 startActivity(intent);
-
                 Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
             }
         }
