@@ -86,6 +86,14 @@ public class AddBudgetActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(AddBudgetActivity.this, MainActivity.class);
+        intent.putExtra("theme", bTheme);
+        startActivity(intent);
+    }
+
     private void saveBudget() {
         final String sTask = editTextBudget.getText().toString().trim();
         final String sDesc = editTextDesc.getText().toString().trim();

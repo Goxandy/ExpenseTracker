@@ -3,6 +3,7 @@ package com.example.expenseTracker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.app.NavUtils;
 
 import android.os.Bundle;
 
@@ -57,6 +58,8 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
                 resetBudget(budget);
             }
         });
+
+
 
         findViewById(R.id.button_delete).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +143,14 @@ public class UpdateBudgetsActivity extends AppCompatActivity {
             progressBar.setProgress(0);
             tvPercentageSpent.setText("0%");
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(UpdateBudgetsActivity.this, MainActivity.class);
+        intent.putExtra("theme", bTheme);
+        startActivity(intent);
     }
 
 
